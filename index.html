@@ -279,6 +279,42 @@ h1 em{font-style:italic;color:var(--rose);}
 .vocab-table tr:last-child td{border-bottom:none;}
 .btn-add-vocab-row{font-size:.73rem;color:var(--muted);background:none;border:none;cursor:pointer;margin-top:.4rem;padding:.2rem 0;}
 .btn-add-vocab-row:hover{color:var(--rose);}
+/* Image block */
+.block-img-upload{display:flex;flex-direction:column;gap:.5rem;}
+.block-img-preview{max-width:100%;border-radius:4px;display:none;margin-top:.4rem;}
+.block-img-preview.show{display:block;}
+.block-img-btn{padding:.35rem .8rem;background:var(--paper);border:1.5px solid var(--border);border-radius:3px;font-size:.76rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.block-img-btn:hover{border-color:var(--rose);color:var(--rose);}
+.block-img-caption{width:100%;border:1px solid var(--border);border-radius:3px;padding:.4rem .6rem;font-family:'DM Sans',sans-serif;font-size:.8rem;background:var(--paper);outline:none;margin-top:.4rem;}
+.block-img-caption:focus{border-color:var(--rose);}
+/* Text block */
+.block-text-area{width:100%;min-height:80px;border:1px solid var(--border);border-radius:3px;padding:.6rem .8rem;font-family:'DM Sans',sans-serif;font-size:.85rem;line-height:1.7;background:var(--paper);outline:none;resize:vertical;color:var(--ink);}
+.block-text-area:focus{border-color:var(--rose);}
+/* Edit exercise */
+.btn-edit-ex{padding:.26rem .6rem;background:none;border:1px solid rgba(26,20,16,.16);border-radius:3px;font-family:'DM Sans',sans-serif;font-size:.69rem;cursor:pointer;color:var(--muted);transition:all .2s;}
+.btn-edit-ex:hover{border-color:var(--gold);color:var(--gold);}
+.btn-edit-ex.editing{background:var(--gold);color:white;border-color:var(--gold);}
+.ex-edit-area{width:100%;border:1.5px solid var(--gold);border-radius:3px;padding:.5rem .7rem;font-family:'DM Sans',sans-serif;font-size:.84rem;outline:none;background:rgba(201,168,76,.05);resize:vertical;line-height:1.5;margin-bottom:.4rem;}
+/* Teacher Mode */
+.teacher-mode-btn{position:fixed;bottom:1.2rem;right:1.2rem;background:var(--ink);color:var(--cream);border:none;border-radius:20px;padding:.5rem 1rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;cursor:pointer;z-index:200;box-shadow:0 4px 14px var(--shadow);transition:all .2s;display:flex;align-items:center;gap:.4rem;letter-spacing:.04em;}
+.teacher-mode-btn:hover{background:var(--rose);}
+.teacher-mode-btn.active{background:var(--rose);}
+.teacher-mode-bar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:var(--cream);padding:.5rem 1.5rem;z-index:199;font-size:.75rem;align-items:center;gap:1rem;box-shadow:0 -4px 16px rgba(0,0,0,.2);}
+.teacher-mode-bar.show{display:flex;}
+body.teacher-mode [contenteditable="true"]{outline:1.5px dashed rgba(200,113,90,.5);border-radius:3px;padding:.1rem .2rem;background:rgba(200,113,90,.04);cursor:text;min-width:20px;display:inline-block;}
+body.teacher-mode [contenteditable="true"]:focus{outline:2px solid var(--rose);background:rgba(200,113,90,.08);}
+body.teacher-mode input.gap{border-bottom:2px dashed var(--rose)!important;background:rgba(200,113,90,.06)!important;}
+body.teacher-mode .pick-opt{border:1.5px dashed var(--rose)!important;}
+body.teacher-mode .ex-actions{opacity:.4;pointer-events:none;}
+body.teacher-mode .btn-edit-ex{opacity:1!important;pointer-events:auto!important;}
+.ans-badge{display:none;font-size:.6rem;background:var(--gold);color:white;padding:.05rem .3rem;border-radius:2px;margin-left:.2rem;vertical-align:middle;}
+body.teacher-mode .ans-badge{display:inline;}
+.ans-edit-popup{display:none;position:absolute;z-index:300;background:white;border:1.5px solid var(--rose);border-radius:6px;padding:.6rem .8rem;box-shadow:0 6px 20px rgba(0,0,0,.15);min-width:180px;}
+.ans-edit-popup.show{display:block;}
+.ans-edit-popup input{width:100%;border:1px solid var(--border);border-radius:3px;padding:.3rem .5rem;font-family:'DM Sans',sans-serif;font-size:.82rem;outline:none;margin-top:.3rem;}
+.ans-edit-popup input:focus{border-color:var(--rose);}
+.ans-edit-popup label{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+.ans-edit-popup button{margin-top:.4rem;padding:.25rem .6rem;background:var(--rose);color:white;border:none;border-radius:3px;font-size:.72rem;cursor:pointer;width:100%;}
 footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spacing:.05em;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:600px){.card.board{flex-direction:column;text-align:center}h1{font-size:1.9rem}.lesson-acc-title{display:none}}
@@ -349,6 +385,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-cw-unit-1"></div>
 <div class="block-picker" id="blockpicker-cw-unit-1">
   <button class="block-type-btn" onclick="addBlock('cw-unit-1','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('cw-unit-1','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('cw-unit-1','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('cw-unit-1','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('cw-unit-1','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('cw-unit-1','vocab')">📋 Vocabulary</button>
@@ -387,6 +425,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-cw-unit-2"></div>
 <div class="block-picker" id="blockpicker-cw-unit-2">
   <button class="block-type-btn" onclick="addBlock('cw-unit-2','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('cw-unit-2','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('cw-unit-2','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('cw-unit-2','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('cw-unit-2','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('cw-unit-2','vocab')">📋 Vocabulary</button>
@@ -450,10 +490,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-1')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-1')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-1')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-1')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-1')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -471,10 +509,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem;line-height:1.9">a my teeth and go to bed. · b all the windows. · c the lights on. · d the washing up. · e some clothes in a bag. · f dressed until 11 a.m.</p>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-2')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-2')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-2')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-2')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-2')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -500,10 +536,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-4')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-4')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-4')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-4')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-4')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -512,10 +546,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <div class="convo">
       <div class="convo-line"><span class="convo-sp">A:</span><span><input id="gi-15" class="gap sm" type="text" placeholder="…"> do you play football?</span>
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-5')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-5')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-5')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-5')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-5')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -550,10 +582,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-top:.4rem">4B — 🔊 1.01 | Listen and check.</p>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-6')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-6')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-6')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-6')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-6')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -566,10 +596,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-7')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-7')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-7')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-7')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-7')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -602,10 +630,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-9')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-9')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-9')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-9')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-9')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -620,10 +646,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-10')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-10')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-10')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-10')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-10')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div></div></div><!-- /acc-1a -->
@@ -653,10 +677,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem;line-height:1.9">a author · b cleaner · c dancer · d dentist · e factory worker · f PA · g tour guide · h vet</p>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-11')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-11')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-11')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-11')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-11')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -672,10 +694,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-12')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-12')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-12')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-12')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-12')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -696,10 +716,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-14')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-14')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-14')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-14')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-14')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -708,10 +726,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <div class="convo">
       <div class="convo-line"><span class="convo-sp">A:</span><span>Hi Bella! It's Giorgio. How are you? <sup>1</sup><input id="gi-49" class="gap" type="text" placeholder="(work)"> you today?</span>
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-15')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-15')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-15')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-15')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-15')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -744,10 +760,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-16')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-16')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-16')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-16')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-16')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -765,10 +779,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-17')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-17')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-17')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-17')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-17')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -777,10 +789,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <span class="pick" id="pk-36"><span class="pick-opt" onclick="pick(this)">a She makes wedding dresses.</span><span class="pick-opt" onclick="pick(this)">b She helps brides on their wedding day.</span><span class="pick-opt" onclick="pick(this)">c She plans weddings for couples.</span></span>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-18')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-18')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-18')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-18')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-18')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -789,10 +799,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <div>
       <div class="tf-row" data-ans="F" id="tf-1"><span class="tf-n">1</span><span style="flex:1;font-size:.82rem">Some brides want someone at a wedding who is more fun than their friends.</span><div class="tf-btns"><button class="tf-btn" onclick="tfPick(this,'T')">T</button><button class="tf-btn" onclick="tfPick(this,'F')">F</button>
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-19')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-19')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-19')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-19')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-19')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div></div>
@@ -813,10 +821,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-20')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-20')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-20')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-20')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-20')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -832,10 +838,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-21')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-21')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-21')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-21')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-21')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -851,10 +855,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem;line-height:1.9">a That's because I'm teaching children! · b Write and let me know! · c One of them is teaching me to play the guitar. · d I'm in Banff. · e Are you living in the same place?</p>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-22')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-22')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-22')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-22')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-22')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -903,10 +905,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-25')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-25')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-25')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-25')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-25')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -923,10 +923,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-26')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-26')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-26')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-26')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-26')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -945,10 +943,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-27')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-27')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-27')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-27')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-27')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -996,10 +992,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-29')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-29')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-29')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-29')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-29')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1015,10 +1009,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
       <strong>CarFan42:</strong> I don't mind <sup>10</sup><input id="gi-112" class="gap" type="text" placeholder="(take)"> the bus or train but I'd hate <sup>11</sup><input id="gi-113" class="gap" type="text" placeholder="(use)"> them all the time. I love driving! The problem is that I hate <sup>12</sup><input id="gi-114" class="gap" type="text" placeholder="(be)"> on the roads with other drivers!
     
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-30')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-30')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-30')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-30')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-30')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1051,10 +1043,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-32')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-32')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-32')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-32')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-32')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1068,10 +1058,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-33')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-33')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-33')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-33')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-33')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div></div></div><!-- /acc-1d -->
@@ -1128,6 +1116,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-hw-unit-1"></div>
 <div class="block-picker" id="blockpicker-hw-unit-1">
   <button class="block-type-btn" onclick="addBlock('hw-unit-1','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('hw-unit-1','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('hw-unit-1','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('hw-unit-1','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('hw-unit-1','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('hw-unit-1','vocab')">📋 Vocabulary</button>
@@ -1178,10 +1168,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-34')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-34')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-34')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-34')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-34')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1199,10 +1187,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-35')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-35')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-35')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-35')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-35')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1221,10 +1207,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-36')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-36')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-36')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-36')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-36')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1240,10 +1224,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-37')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-37')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-37')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-37')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-37')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1252,10 +1234,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <div class="convo">
       <div class="convo-line"><span class="convo-sp">A:</span><span>What <sup>1</sup><input id="gi-127" class="gap" type="text" placeholder="you/do" data-ans="spoke"> when I called you yesterday?</span>
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-38')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-38')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-38')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-38')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-38')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1286,10 +1266,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <p class="ex-sub">4B — 🔊 2.01 | Listen again and repeat the sentences.</p>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-39')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-39')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-39')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-39')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-39')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1308,10 +1286,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ul>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-40')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-40')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-40')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-40')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-40')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1327,10 +1303,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-41')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-41')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-41')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-41')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-41')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1344,10 +1318,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-42')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-42')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-42')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-42')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-42')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1377,10 +1349,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-44')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-44')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-44')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-44')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-44')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1427,10 +1397,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-48')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-48')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-48')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-48')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-48')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1446,10 +1414,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
       <sup>10</sup><input id="gi-174" class="gap" type="text" placeholder="…"> hall – meet your friends here, and exit the airport to get a bus, train or taxi.
     
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-49')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-49')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-49')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-49')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-49')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1467,10 +1433,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-50')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-50')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-50')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-50')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-50')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1481,10 +1445,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </p>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-51')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-51')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-51')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-51')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-51')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1501,10 +1463,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-52')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-52')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-52')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-52')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-52')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1524,10 +1484,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <p class="ex-instruction"><strong>6A</strong> &nbsp;Read the article again. Are the statements True (T) or False (F)?</p>
     <div class="tf-row" data-ans="T" id="tf-6"><span class="tf-n">1</span><span style="flex:1;font-size:.82rem">Darius asked others for help.</span><div class="tf-btns"><button class="tf-btn" onclick="tfPick(this,'T')">T</button><button class="tf-btn" onclick="tfPick(this,'F')">F</button>
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-54')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-54')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-54')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-54')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-54')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div></div>
@@ -1553,10 +1511,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-55')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-55')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-55')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-55')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-55')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1570,10 +1526,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-56')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-56')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-56')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-56')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-56')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div></div></div><!-- /acc-2b -->
@@ -1597,10 +1551,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-57')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-57')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-57')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-57')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-57')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1631,10 +1583,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-59')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-59')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-59')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-59')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-59')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1651,10 +1601,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-60')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-60')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-60')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-60')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-60')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1697,10 +1645,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
     <div style="font-size:.81rem;line-height:1.9;margin-top:.4rem;color:var(--muted)">a &nbsp;all of us agreed. &nbsp;·&nbsp; b &nbsp;two of them couldn't come. &nbsp;·&nbsp; c &nbsp;one of them had pen all over his face! &nbsp;·&nbsp; d &nbsp;none of my friends could afford the trip. &nbsp;·&nbsp; e &nbsp;both of them are away. &nbsp;·&nbsp; f &nbsp;most of them are still alive.
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-62')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-62')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-62')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-62')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-62')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1717,10 +1663,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-63')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-63')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-63')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-63')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-63')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1730,10 +1674,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <span class="pick" data-ans="b five" id="pk-131"><span class="pick-opt" onclick="pick(this)">a &nbsp;three</span><span class="pick-opt" onclick="pick(this)">b &nbsp;five</span><span class="pick-opt" onclick="pick(this)">c &nbsp;seven</span></span>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-64')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-64')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-64')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-64')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-64')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1751,10 +1693,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-65')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-65')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-65')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-65')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-65')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1769,10 +1709,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-66')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-66')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-66')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-66')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-66')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div></div></div><!-- /acc-2d -->
@@ -1798,10 +1736,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-67')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-67')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-67')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-67')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-67')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1812,10 +1748,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </p>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-68')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-68')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-68')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-68')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-68')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1848,10 +1782,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-70')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-70')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-70')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-70')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-70')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1876,10 +1808,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-72')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-72')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-72')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-72')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-72')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1900,10 +1830,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-73')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-73')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-73')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-73')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-73')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1919,10 +1847,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
     <div style="font-size:.8rem;color:var(--muted);margin-top:.35rem">a stressed &nbsp;·&nbsp; b afraid &nbsp;·&nbsp; c lonely &nbsp;·&nbsp; d unhappy &nbsp;·&nbsp; e interested &nbsp;·&nbsp; f confident
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-74')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-74')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-74')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-74')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-74')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1953,10 +1879,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     </ol>
   
   <div class="ex-actions">
-    <button class="btn-check" onclick="checkExercise('ex-76')">✓ Check</button>
-    <button class="btn-hint" onclick="hintExercise('ex-76')">💡 Hint</button>
-    <button class="btn-show-ans" onclick="showAnswers('ex-76')">Show answers</button>
     <button class="btn-reset-ex" onclick="resetExercise('ex-76')">↺ Reset</button>
+    <button class="btn-edit-ex" onclick="toggleEditExercise(this,'ex-76')">✏️ Edit</button>
     <span class="ex-score"></span>
   </div>
 </div>
@@ -1981,6 +1905,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-hw-unit-2"></div>
 <div class="block-picker" id="blockpicker-hw-unit-2">
   <button class="block-type-btn" onclick="addBlock('hw-unit-2','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('hw-unit-2','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('hw-unit-2','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('hw-unit-2','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('hw-unit-2','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('hw-unit-2','vocab')">📋 Vocabulary</button>
@@ -2021,6 +1947,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-hw-unit-3"></div>
 <div class="block-picker" id="blockpicker-hw-unit-3">
   <button class="block-type-btn" onclick="addBlock('hw-unit-3','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('hw-unit-3','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('hw-unit-3','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('hw-unit-3','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('hw-unit-3','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('hw-unit-3','vocab')">📋 Vocabulary</button>
@@ -2072,6 +2000,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-vocab-unit-1"></div>
 <div class="block-picker" id="blockpicker-vocab-unit-1">
   <button class="block-type-btn" onclick="addBlock('vocab-unit-1','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('vocab-unit-1','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('vocab-unit-1','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('vocab-unit-1','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('vocab-unit-1','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('vocab-unit-1','vocab')">📋 Vocabulary</button>
@@ -2111,6 +2041,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-vocab-unit-2"></div>
 <div class="block-picker" id="blockpicker-vocab-unit-2">
   <button class="block-type-btn" onclick="addBlock('vocab-unit-2','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('vocab-unit-2','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('vocab-unit-2','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('vocab-unit-2','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('vocab-unit-2','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('vocab-unit-2','vocab')">📋 Vocabulary</button>
@@ -2149,6 +2081,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-vocab-unit-3"></div>
 <div class="block-picker" id="blockpicker-vocab-unit-3">
   <button class="block-type-btn" onclick="addBlock('vocab-unit-3','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('vocab-unit-3','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('vocab-unit-3','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('vocab-unit-3','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('vocab-unit-3','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('vocab-unit-3','vocab')">📋 Vocabulary</button>
@@ -2211,6 +2145,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-review-unit-1"></div>
 <div class="block-picker" id="blockpicker-review-unit-1">
   <button class="block-type-btn" onclick="addBlock('review-unit-1','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('review-unit-1','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('review-unit-1','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('review-unit-1','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('review-unit-1','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('review-unit-1','vocab')">📋 Vocabulary</button>
@@ -2260,6 +2196,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-review-unit-2"></div>
 <div class="block-picker" id="blockpicker-review-unit-2">
   <button class="block-type-btn" onclick="addBlock('review-unit-2','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('review-unit-2','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('review-unit-2','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('review-unit-2','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('review-unit-2','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('review-unit-2','vocab')">📋 Vocabulary</button>
@@ -2309,6 +2247,8 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <div id="blocks-review-unit-3"></div>
 <div class="block-picker" id="blockpicker-review-unit-3">
   <button class="block-type-btn" onclick="addBlock('review-unit-3','note')">📝 Note</button>
+  <button class="block-type-btn" onclick="addBlock('review-unit-3','text')">📄 Text</button>
+  <button class="block-type-btn" onclick="addBlock('review-unit-3','image')">🖼️ Image</button>
   <button class="block-type-btn" onclick="addBlock('review-unit-3','link')">🔗 Link</button>
   <button class="block-type-btn" onclick="addBlock('review-unit-3','task')">✅ Tasks</button>
   <button class="block-type-btn" onclick="addBlock('review-unit-3','vocab')">📋 Vocabulary</button>
@@ -2326,18 +2266,21 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
   <div class="materials-page">
     <div class="materials-header"><h2>Course <span>Materials</span></h2></div>
     <div class="grid" id="cardGrid">
-      <a class="card rose" href="https://drive.google.com/drive/folders/1BkrGTS_OHfSyBj4O1M1IEvydN1v6BOHx" target="_blank">
+      <a class="card rose" href="https://drive.google.com/file/d/1YYNz6qlUqMmtm9_WJ3Fx0Wmhz1II8KC1/view?usp=sharing" target="_blank">
         <span class="card-icon">📖</span><div class="card-label">Textbook</div><h3>Student's Book</h3><p>Main course book.</p><span class="card-arrow">→</span>
       </a>
-      <a class="card sage" href="https://drive.google.com/drive/folders/1vNZOUo8oUEiV6O0JRaKrOuHTRjiIzxPc" target="_blank">
+      <a class="card sage" href="https://drive.google.com/file/d/10smIUhE6eZBmtSf63ugKf3raLzqPChos/view?usp=sharing" target="_blank">
         <span class="card-icon">📝</span><div class="card-label">Practice</div><h3>Workbook</h3><p>Exercises and practice tasks.</p><span class="card-arrow">→</span>
       </a>
       <a class="card gold" href="https://drive.google.com/drive/folders/1vNZOUo8oUEiV6O0JRaKrOuHTRjiIzxPc" target="_blank">
         <span class="card-icon">🎧</span><div class="card-label">Audio</div><h3>Workbook Audio</h3><p>All listening tracks.</p><span class="card-arrow">→</span>
       </a>
-      <div class="card blue" style="cursor:default">
-        <span class="card-icon">🔊</span><div class="card-label">Audio</div><h3>Student's Book Audio</h3><p>Link coming soon.</p>
-      </div>
+      <a class="card blue" href="https://drive.google.com/drive/folders/1qNIo0dgmBHC_m4ZT2ZB5D2PqPnnxbZ5Z" target="_blank">
+        <span class="card-icon">🔊</span><div class="card-label">Audio</div><h3>Student's Book Audio</h3><p>All audio tracks.</p><span class="card-arrow">→</span>
+      </a>
+      <a class="card" style="background:linear-gradient(135deg,#f0eaf8,#e8dff5);border-color:#c9b8e8" href="https://drive.google.com/drive/folders/1Z06Jl4aFXOhnKkPCz_ADm6sf2ZVM02VN" target="_blank">
+        <span class="card-icon">🎬</span><div class="card-label" style="color:#9b59b6">Video</div><h3>Video</h3><p>Course video materials.</p><span class="card-arrow" style="color:#9b59b6">→</span>
+      </a>
       <a class="card board" href="https://miro.com/app/board/uXjVPQMjB3I=/" target="_blank">
         <div class="board-text"><div class="card-label">Interactive</div><h3>Miro Board</h3><p>Shared workspace.</p></div>
         <div class="board-visual">🗂️</div>
@@ -3115,6 +3058,10 @@ function addBlock(uid, type){
   let inner = '';
   if(type==='note'){
     inner=`<div class="block-label">📝 Note</div><textarea class="block-textarea" id="${bid}-txt" placeholder="Write your note…" oninput="saveAll()"></textarea>`;
+  } else if(type==='text'){
+    inner=`<div class="block-label">📄 Text / Task</div><textarea class="block-text-area" id="${bid}-txt" placeholder="Add task description, instructions, reading text…" oninput="saveAll()"></textarea>`;
+  } else if(type==='image'){
+    inner=`<div class="block-label">🖼️ Image</div><div class="block-img-upload"><label class="block-img-btn">📁 Choose image<input type="file" accept="image/*" style="display:none" onchange="loadBlockImage(this,'${bid}')"></label><img id="${bid}-img" class="block-img-preview" alt=""><input class="block-img-caption" id="${bid}-cap" placeholder="Caption (optional)…" oninput="saveAll()"></div>`;
   } else if(type==='link'){
     inner=`<div class="block-label">🔗 Link</div><div class="block-link-row"><input class="block-link-input" id="${bid}-title" placeholder="Title…" oninput="saveAll()"><input class="block-link-input" id="${bid}-url" placeholder="https://…" oninput="saveAll()"><button class="block-link-btn" onclick="openBlockLink('${bid}')">Open →</button></div>`;
   } else if(type==='task'){
@@ -3167,5 +3114,18 @@ function toggleGlobalNotes(){
 // Load on start
 window.addEventListener('DOMContentLoaded', loadAll);
 </script>
+
+<button class="teacher-mode-btn" id="teacherBtn" onclick="toggleTeacherMode()">✏️ Teacher Mode</button>
+
+<div class="teacher-mode-bar" id="teacherBar">
+  <span>✏️ Teacher Mode — click any text to edit · click gaps to set answers · click options to rename</span>
+  <button onclick="toggleTeacherMode()" style="margin-left:auto;background:var(--rose);color:white;border:none;border-radius:3px;padding:.3rem .8rem;font-family:'DM Sans',sans-serif;font-size:.73rem;cursor:pointer;">✓ Done editing</button>
+</div>
+
+<div class="ans-edit-popup" id="ansPopup">
+  <label>Correct answer</label>
+  <input id="ansPopupInput" placeholder="answer…" onkeydown="if(event.key==='Enter')saveAnsPopup()">
+  <button onclick="saveAnsPopup()">Save answer</button>
+</div>
 </body>
 </html>
