@@ -3037,6 +3037,63 @@ function toggleGlobalNotes(){
   document.querySelector('.global-notes-wrap').classList.toggle('open');
   saveAll();
 }
+
+// ═══════════════════════════════════════════════
+// TEACHER MODE
+// ═══════════════════════════════════════════════
+let teacherModeActive = false;
+
+function toggleTeacherMode(){
+  teacherModeActive = !teacherModeActive;
+  document.body.classList.toggle('teacher-mode', teacherModeActive);
+  document.getElementById('teacherBtn').classList.toggle('active', teacherModeActive);
+  document.getElementById('teacherBar').classList.toggle('show', teacherModeActive);
+  
+  // Make editable elements
+  if(teacherModeActive){
+    document.querySelectorAll('.ex-instruction, .lesson-acc-title, .lesson-acc-tag, .unit-title-text, .section-tag').forEach(el => {
+      el.setAttribute('contenteditable', 'true');
+      el.addEventListener('blur', saveAll);
+    });
+  } else {
+    document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+      el.removeAttribute('contenteditable');
+    });
+    saveAll();
+  }
+}
+
+let currentAnsInput = null;
+
+function showAnsPopup(inputEl){
+  if(!teacherModeActive) return;
+  currentAnsInput = inputEl;
+  const popup = document.getElementById('ansPopup');
+  const rect = inputEl.getBoundingClientRect();
+  popup.style.top = (rect.bottom + window.scrollY + 8) + 'px';
+  popup.style.left = (rect.left + window.scrollX) + 'px';
+  popup.classList.add('show');
+  document.getElementById('ansPopupInput').value = inputEl.dataset.answer || '';
+  document.getElementById('ansPopupInput').focus();
+}
+
+function saveAnsPopup(){
+  if(currentAnsInput){
+    currentAnsInput.dataset.answer = document.getElementById('ansPopupInput').value;
+    saveAll();
+  }
+  document.getElementById('ansPopup').classList.remove('show');
+  currentAnsInput = null;
+}
+
+// Close popup on outside click
+document.addEventListener('click', function(e){
+  const popup = document.getElementById('ansPopup');
+  if(popup && !popup.contains(e.target) && !e.target.classList.contains('gap')){
+    popup.classList.remove('show');
+  }
+});
+
 // Load on start
 window.addEventListener('DOMContentLoaded', loadAll);
 </script>
