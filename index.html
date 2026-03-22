@@ -349,91 +349,17 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
 <!-- CLASSWORK TAB -->
 <div class="tab-page active" id="tab-classwork">
   <div class="units-page">
-    <div class="units-page-header">
-      <h2><span>Classwork</span> Units</h2>
-      <button class="btn-new-unit" onclick="openModal('cunit')">＋ Add unit</button>
+    <div class="units-page-header" style="justify-content:center;">
+      <h2><span>Classwork</span></h2>
     </div>
-    <div id="cwUnitsList">
-      <div class="unit-item" id="cw-unit-1">
-        <div class="unit-header" onclick="toggleUnit('cw-unit-1')">
-          <span class="unit-number">Unit 1</span><span class="unit-title-text">Getting Started</span>
-          <span class="unit-hw-count" id="count-cw-unit-1">0 tasks</span><span class="unit-chevron">▼</span>
+    <div style="display:flex;justify-content:center;padding:3rem 1rem;">
+      <a href="https://miro.com/app/board/uXjVPQMjB3I=/" target="_blank" style="display:flex;align-items:center;gap:1rem;background:var(--paper);border:1px solid var(--border);border-radius:6px;padding:1.5rem 2.5rem;text-decoration:none;color:var(--ink);transition:all .25s;box-shadow:0 3px 12px var(--shadow);">
+        <span style="font-size:2.2rem;">🗂️</span>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;">Miro Board</div>
+          <div style="font-size:.82rem;color:var(--muted);margin-top:.2rem;">Open shared workspace →</div>
         </div>
-        <div class="unit-body"><div class="unit-body-inner">
-
-<!-- Notes & Vocab for unit 1 -->
-<div class="unit-notes-section">
-  <div class="unit-notes-row">
-    <div class="unit-notes-col">
-      <div class="unit-notes-label">📝 Homework Notes</div>
-      <textarea class="unit-textarea" id="hwnotes-cw-1" placeholder="Write what's assigned for homework…" oninput="saveAll()"></textarea>
-    </div>
-    <div class="unit-notes-col">
-      <div class="unit-notes-label">📖 Vocabulary</div>
-      <textarea class="unit-textarea" id="vocabnotes-cw-1" placeholder="New words, phrases, translations…" oninput="saveAll()"></textarea>
-    </div>
-  </div>
-</div>
-          <ul id="hw-cw-unit-1" style="list-style:none"></ul>
-          <button class="btn-add-hw" onclick="showHwForm('cw-unit-1')">＋ Add classwork</button>
-          <div class="add-hw-form" id="hwform-cw-unit-1">
-            <div class="form-row"><input type="text" class="inp-main" placeholder="Task…" id="hwtxt-cw-unit-1"><input type="text" class="inp-pages" placeholder="p. 10" id="hwpages-cw-unit-1"></div>
-            <div class="form-row"><input type="url" class="inp-url" placeholder="Link (optional)" id="hwurl-cw-unit-1"></div>
-            <div class="form-actions"><button class="btn-save-hw" onclick="saveHw('cw-unit-1')">Save</button><button class="btn-cancel-hw" onclick="hideHwForm('cw-unit-1')">Cancel</button></div>
-          </div>
-        
-<div id="blocks-cw-unit-1"></div>
-<div class="block-picker" id="blockpicker-cw-unit-1">
-  <button class="block-type-btn" onclick="addBlock('cw-unit-1','note')">📝 Note</button>
-  <button class="block-type-btn" onclick="addBlock('cw-unit-1','text')">📄 Text</button>
-  <button class="block-type-btn" onclick="addBlock('cw-unit-1','image')">🖼️ Image</button>
-  <button class="block-type-btn" onclick="addBlock('cw-unit-1','link')">🔗 Link</button>
-  <button class="block-type-btn" onclick="addBlock('cw-unit-1','task')">✅ Tasks</button>
-  <button class="block-type-btn" onclick="addBlock('cw-unit-1','vocab')">📋 Vocabulary</button>
-</div>
-<button class="btn-add-block" onclick="toggleBlockPicker('cw-unit-1')">＋ Add block</button>
-</div></div>
-      </div>
-      <div class="unit-item" id="cw-unit-2">
-        <div class="unit-header" onclick="toggleUnit('cw-unit-2')">
-          <span class="unit-number">Unit 2</span><span class="unit-title-text">Animals &amp; Travel</span>
-          <span class="unit-hw-count" id="count-cw-unit-2">0 tasks</span><span class="unit-chevron">▼</span>
-        </div>
-        <div class="unit-body"><div class="unit-body-inner">
-
-<!-- Notes & Vocab for unit 2 -->
-<div class="unit-notes-section">
-  <div class="unit-notes-row">
-    <div class="unit-notes-col">
-      <div class="unit-notes-label">📝 Homework Notes</div>
-      <textarea class="unit-textarea" id="hwnotes-cw-2" placeholder="Write what's assigned for homework…" oninput="saveAll()"></textarea>
-    </div>
-    <div class="unit-notes-col">
-      <div class="unit-notes-label">📖 Vocabulary</div>
-      <textarea class="unit-textarea" id="vocabnotes-cw-2" placeholder="New words, phrases, translations…" oninput="saveAll()"></textarea>
-    </div>
-  </div>
-</div>
-          <ul id="hw-cw-unit-2" style="list-style:none"></ul>
-          <button class="btn-add-hw" onclick="showHwForm('cw-unit-2')">＋ Add classwork</button>
-          <div class="add-hw-form" id="hwform-cw-unit-2">
-            <div class="form-row"><input type="text" class="inp-main" placeholder="Task…" id="hwtxt-cw-unit-2"><input type="text" class="inp-pages" placeholder="p. 10" id="hwpages-cw-unit-2"></div>
-            <div class="form-row"><input type="url" class="inp-url" placeholder="Link (optional)" id="hwurl-cw-unit-2"></div>
-            <div class="form-actions"><button class="btn-save-hw" onclick="saveHw('cw-unit-2')">Save</button><button class="btn-cancel-hw" onclick="hideHwForm('cw-unit-2')">Cancel</button></div>
-          </div>
-        
-<div id="blocks-cw-unit-2"></div>
-<div class="block-picker" id="blockpicker-cw-unit-2">
-  <button class="block-type-btn" onclick="addBlock('cw-unit-2','note')">📝 Note</button>
-  <button class="block-type-btn" onclick="addBlock('cw-unit-2','text')">📄 Text</button>
-  <button class="block-type-btn" onclick="addBlock('cw-unit-2','image')">🖼️ Image</button>
-  <button class="block-type-btn" onclick="addBlock('cw-unit-2','link')">🔗 Link</button>
-  <button class="block-type-btn" onclick="addBlock('cw-unit-2','task')">✅ Tasks</button>
-  <button class="block-type-btn" onclick="addBlock('cw-unit-2','vocab')">📋 Vocabulary</button>
-</div>
-<button class="btn-add-block" onclick="toggleBlockPicker('cw-unit-2')">＋ Add block</button>
-</div></div>
-      </div>
+      </a>
     </div>
   </div>
 </div>
