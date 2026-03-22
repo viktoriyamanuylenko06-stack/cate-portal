@@ -269,9 +269,11 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
       <textarea class="global-notes-area" id="globalNotes" placeholder="General notes, reminders, anything…" oninput="saveAll()"></textarea>
     </div>
   </div>
-  <nav class="tab-nav">
+  <nav class="tab-nav" style="max-width:680px">
     <button class="tab-btn active" data-tab="classwork">🖊 Classwork</button>
     <button class="tab-btn" data-tab="homework">✏️ Homework</button>
+    <button class="tab-btn" data-tab="vocabulary">📖 Vocabulary</button>
+    <button class="tab-btn" data-tab="review">⭐ Review</button>
     <button class="tab-btn" data-tab="materials">📚 Materials</button>
   </nav>
 </header>
@@ -1953,6 +1955,241 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
   </div>
 </div><!-- /tab-homework -->
 
+<!-- VOCABULARY TAB -->
+<div class="tab-page" id="tab-vocabulary">
+  <div class="units-page">
+    <div class="units-page-header">
+      <h2><span>Vocabulary</span></h2>
+      <button class="btn-new-unit" onclick="openModal('vocabunit')">＋ Add unit</button>
+    </div>
+    <div id="vocabUnitsList">
+
+    <!-- Unit 1 -->
+    <div class="unit-item" id="vocab-unit-1">
+      <div class="unit-header" onclick="toggleUnit('vocab-unit-1')">
+        <span class="unit-number">Unit 1</span>
+        <span class="unit-title-text">Getting Started</span>
+        <span class="unit-chevron">▼</span>
+      </div>
+      <div class="unit-body"><div class="unit-body-inner">
+        <div class="unit-notes-label" style="margin-bottom:.4rem">Common verbs · Everyday activities · Feelings · Jobs</div>
+        <textarea class="unit-textarea" id="vocab-u1" placeholder="Word — translation&#10;e.g. to miss — скучать" rows="10" oninput="saveAll()" style="min-height:200px;font-family:monospace;font-size:.82rem"></textarea>
+        <div style="margin-top:.7rem">
+          <div class="unit-notes-label" style="margin-bottom:.35rem">🔗 Links & files</div>
+          <ul class="simple-hw-list" id="vocablinks-unit-1"></ul>
+          <button class="btn-add-hw" onclick="showHwForm('vocablink-unit-1')">＋ Add link</button>
+          <div class="add-hw-form" id="hwform-vocablink-unit-1">
+            <div class="form-row">
+              <input type="text" class="inp-main" placeholder="Title (e.g. Quizlet Unit 1)" id="hwtxt-vocablink-unit-1">
+            </div>
+            <div class="form-row">
+              <input type="url" class="inp-url" placeholder="https://..." id="hwpages-vocablink-unit-1" style="flex:1">
+            </div>
+            <div class="form-actions">
+              <button class="btn-save-hw" onclick="saveLinkItem('vocablink-unit-1','vocablinks-unit-1')">Save</button>
+              <button class="btn-cancel-hw" onclick="hideHwForm('vocablink-unit-1')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- Unit 2 -->
+    <div class="unit-item" id="vocab-unit-2">
+      <div class="unit-header" onclick="toggleUnit('vocab-unit-2')">
+        <span class="unit-number">Unit 2</span>
+        <span class="unit-title-text">Animals &amp; Travel</span>
+        <span class="unit-chevron">▼</span>
+      </div>
+      <div class="unit-body"><div class="unit-body-inner">
+        <div class="unit-notes-label" style="margin-bottom:.4rem">Animals · Air travel · Actions · Feelings</div>
+        <textarea class="unit-textarea" id="vocab-u2" placeholder="Word — translation&#10;e.g. fur — мех" rows="10" oninput="saveAll()" style="min-height:200px;font-family:monospace;font-size:.82rem"></textarea>
+        <div style="margin-top:.7rem">
+          <div class="unit-notes-label" style="margin-bottom:.35rem">🔗 Links & files</div>
+          <ul class="simple-hw-list" id="vocablinks-unit-2"></ul>
+          <button class="btn-add-hw" onclick="showHwForm('vocablink-unit-2')">＋ Add link</button>
+          <div class="add-hw-form" id="hwform-vocablink-unit-2">
+            <div class="form-row">
+              <input type="text" class="inp-main" placeholder="Title (e.g. Quizlet Unit 2)" id="hwtxt-vocablink-unit-2">
+            </div>
+            <div class="form-row">
+              <input type="url" class="inp-url" placeholder="https://..." id="hwpages-vocablink-unit-2" style="flex:1">
+            </div>
+            <div class="form-actions">
+              <button class="btn-save-hw" onclick="saveLinkItem('vocablink-unit-2','vocablinks-unit-2')">Save</button>
+              <button class="btn-cancel-hw" onclick="hideHwForm('vocablink-unit-2')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- Unit 3 -->
+    <div class="unit-item" id="vocab-unit-3">
+      <div class="unit-header" onclick="toggleUnit('vocab-unit-3')">
+        <span class="unit-number">Unit 3</span>
+        <span class="unit-title-text">People &amp; Places</span>
+        <span class="unit-chevron">▼</span>
+      </div>
+      <div class="unit-body"><div class="unit-body-inner">
+        <textarea class="unit-textarea" id="vocab-u3" placeholder="Word — translation" rows="10" oninput="saveAll()" style="min-height:200px;font-family:monospace;font-size:.82rem"></textarea>
+        <div style="margin-top:.7rem">
+          <div class="unit-notes-label" style="margin-bottom:.35rem">🔗 Links & files</div>
+          <ul class="simple-hw-list" id="vocablinks-unit-3"></ul>
+          <button class="btn-add-hw" onclick="showHwForm('vocablink-unit-3')">＋ Add link</button>
+          <div class="add-hw-form" id="hwform-vocablink-unit-3">
+            <div class="form-row">
+              <input type="text" class="inp-main" placeholder="Title" id="hwtxt-vocablink-unit-3">
+            </div>
+            <div class="form-row">
+              <input type="url" class="inp-url" placeholder="https://..." id="hwpages-vocablink-unit-3" style="flex:1">
+            </div>
+            <div class="form-actions">
+              <button class="btn-save-hw" onclick="saveLinkItem('vocablink-unit-3','vocablinks-unit-3')">Save</button>
+              <button class="btn-cancel-hw" onclick="hideHwForm('vocablink-unit-3')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    </div><!-- /vocabUnitsList -->
+  </div>
+</div>
+
+<!-- REVIEW TAB -->
+<div class="tab-page" id="tab-review">
+  <div class="units-page">
+    <div class="units-page-header">
+      <h2><span>Review</span> Notes</h2>
+      <button class="btn-new-unit" onclick="openModal('reviewunit')">＋ Add unit</button>
+    </div>
+    <div id="reviewUnitsList">
+
+    <!-- Unit 1 review -->
+    <div class="unit-item" id="review-unit-1">
+      <div class="unit-header" onclick="toggleUnit('review-unit-1')">
+        <span class="unit-number">Unit 1</span>
+        <span class="unit-title-text">Getting Started — Review</span>
+        <span class="unit-chevron">▼</span>
+      </div>
+      <div class="unit-body"><div class="unit-body-inner">
+        <div class="unit-notes-row" style="margin-bottom:.8rem">
+          <div class="unit-notes-col">
+            <div class="unit-notes-label">✅ What I know well</div>
+            <textarea class="unit-textarea" id="review-u1-know" placeholder="Topics I'm confident with…" oninput="saveAll()"></textarea>
+          </div>
+          <div class="unit-notes-col">
+            <div class="unit-notes-label">🔁 What to practise more</div>
+            <textarea class="unit-textarea" id="review-u1-practise" placeholder="Topics to revise…" oninput="saveAll()"></textarea>
+          </div>
+        </div>
+        <div class="unit-notes-label" style="margin-bottom:.35rem">📝 General notes</div>
+        <textarea class="unit-textarea" id="review-u1-notes" placeholder="Any other notes…" oninput="saveAll()"></textarea>
+        <div style="margin-top:.7rem">
+          <div class="unit-notes-label" style="margin-bottom:.35rem">🔗 Links & files</div>
+          <ul class="simple-hw-list" id="reviewlinks-unit-1"></ul>
+          <button class="btn-add-hw" onclick="showHwForm('reviewlink-unit-1')">＋ Add link</button>
+          <div class="add-hw-form" id="hwform-reviewlink-unit-1">
+            <div class="form-row">
+              <input type="text" class="inp-main" placeholder="Title (e.g. Review PDF)" id="hwtxt-reviewlink-unit-1">
+            </div>
+            <div class="form-row">
+              <input type="url" class="inp-url" placeholder="https://..." id="hwpages-reviewlink-unit-1" style="flex:1">
+            </div>
+            <div class="form-actions">
+              <button class="btn-save-hw" onclick="saveLinkItem('reviewlink-unit-1','reviewlinks-unit-1')">Save</button>
+              <button class="btn-cancel-hw" onclick="hideHwForm('reviewlink-unit-1')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- Unit 2 review -->
+    <div class="unit-item" id="review-unit-2">
+      <div class="unit-header" onclick="toggleUnit('review-unit-2')">
+        <span class="unit-number">Unit 2</span>
+        <span class="unit-title-text">Animals &amp; Travel — Review</span>
+        <span class="unit-chevron">▼</span>
+      </div>
+      <div class="unit-body"><div class="unit-body-inner">
+        <div class="unit-notes-row" style="margin-bottom:.8rem">
+          <div class="unit-notes-col">
+            <div class="unit-notes-label">✅ What I know well</div>
+            <textarea class="unit-textarea" id="review-u2-know" placeholder="Topics I'm confident with…" oninput="saveAll()"></textarea>
+          </div>
+          <div class="unit-notes-col">
+            <div class="unit-notes-label">🔁 What to practise more</div>
+            <textarea class="unit-textarea" id="review-u2-practise" placeholder="Topics to revise…" oninput="saveAll()"></textarea>
+          </div>
+        </div>
+        <div class="unit-notes-label" style="margin-bottom:.35rem">📝 General notes</div>
+        <textarea class="unit-textarea" id="review-u2-notes" placeholder="Any other notes…" oninput="saveAll()"></textarea>
+        <div style="margin-top:.7rem">
+          <div class="unit-notes-label" style="margin-bottom:.35rem">🔗 Links & files</div>
+          <ul class="simple-hw-list" id="reviewlinks-unit-2"></ul>
+          <button class="btn-add-hw" onclick="showHwForm('reviewlink-unit-2')">＋ Add link</button>
+          <div class="add-hw-form" id="hwform-reviewlink-unit-2">
+            <div class="form-row">
+              <input type="text" class="inp-main" placeholder="Title" id="hwtxt-reviewlink-unit-2">
+            </div>
+            <div class="form-row">
+              <input type="url" class="inp-url" placeholder="https://..." id="hwpages-reviewlink-unit-2" style="flex:1">
+            </div>
+            <div class="form-actions">
+              <button class="btn-save-hw" onclick="saveLinkItem('reviewlink-unit-2','reviewlinks-unit-2')">Save</button>
+              <button class="btn-cancel-hw" onclick="hideHwForm('reviewlink-unit-2')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- Unit 3 review -->
+    <div class="unit-item" id="review-unit-3">
+      <div class="unit-header" onclick="toggleUnit('review-unit-3')">
+        <span class="unit-number">Unit 3</span>
+        <span class="unit-title-text">People &amp; Places — Review</span>
+        <span class="unit-chevron">▼</span>
+      </div>
+      <div class="unit-body"><div class="unit-body-inner">
+        <div class="unit-notes-row" style="margin-bottom:.8rem">
+          <div class="unit-notes-col">
+            <div class="unit-notes-label">✅ What I know well</div>
+            <textarea class="unit-textarea" id="review-u3-know" placeholder="Topics I'm confident with…" oninput="saveAll()"></textarea>
+          </div>
+          <div class="unit-notes-col">
+            <div class="unit-notes-label">🔁 What to practise more</div>
+            <textarea class="unit-textarea" id="review-u3-practise" placeholder="Topics to revise…" oninput="saveAll()"></textarea>
+          </div>
+        </div>
+        <div class="unit-notes-label" style="margin-bottom:.35rem">📝 General notes</div>
+        <textarea class="unit-textarea" id="review-u3-notes" placeholder="Any other notes…" oninput="saveAll()"></textarea>
+        <div style="margin-top:.7rem">
+          <div class="unit-notes-label" style="margin-bottom:.35rem">🔗 Links & files</div>
+          <ul class="simple-hw-list" id="reviewlinks-unit-3"></ul>
+          <button class="btn-add-hw" onclick="showHwForm('reviewlink-unit-3')">＋ Add link</button>
+          <div class="add-hw-form" id="hwform-reviewlink-unit-3">
+            <div class="form-row">
+              <input type="text" class="inp-main" placeholder="Title" id="hwtxt-reviewlink-unit-3">
+            </div>
+            <div class="form-row">
+              <input type="url" class="inp-url" placeholder="https://..." id="hwpages-reviewlink-unit-3" style="flex:1">
+            </div>
+            <div class="form-actions">
+              <button class="btn-save-hw" onclick="saveLinkItem('reviewlink-unit-3','reviewlinks-unit-3')">Save</button>
+              <button class="btn-cancel-hw" onclick="hideHwForm('reviewlink-unit-3')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    </div><!-- /reviewUnitsList -->
+  </div>
+</div>
+
 <!-- MATERIALS TAB -->
 <div class="tab-page" id="tab-materials">
   <div class="materials-page">
@@ -1995,6 +2232,22 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:#a89e94;letter-spaci
     <label>Category</label>
     <select id="rColor"><option value="rose">📖 Textbook</option><option value="sage">📝 Practice</option><option value="gold">🎧 Audio</option><option value="blue">🔗 Other</option></select>
     <div class="modal-actions"><button class="btn-modal-cancel" onclick="closeModal('resource')">Cancel</button><button class="btn-modal-add" onclick="addCard()">Add →</button></div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-vocabunit">
+  <div class="modal"><button class="close-modal" onclick="closeModal('vocabunit')">✕</button>
+    <h3>New Vocabulary Unit</h3>
+    <label>Unit number</label><input type="text" id="vuNum" placeholder="4">
+    <label>Unit title</label><input type="text" id="vuName" placeholder="e.g. City Life">
+    <div class="modal-actions"><button class="btn-modal-cancel" onclick="closeModal('vocabunit')">Cancel</button><button class="btn-modal-add" onclick="addVocabUnit()">Add →</button></div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-reviewunit">
+  <div class="modal"><button class="close-modal" onclick="closeModal('reviewunit')">✕</button>
+    <h3>New Review Unit</h3>
+    <label>Unit number</label><input type="text" id="ruNum" placeholder="4">
+    <label>Unit title</label><input type="text" id="ruName" placeholder="e.g. City Life">
+    <div class="modal-actions"><button class="btn-modal-cancel" onclick="closeModal('reviewunit')">Cancel</button><button class="btn-modal-add" onclick="addReviewUnit()">Add →</button></div>
   </div>
 </div>
 <div class="modal-overlay" id="modal-cunit">
@@ -2665,6 +2918,55 @@ function importData(event){
   };
   reader.readAsText(file);
   event.target.value = '';
+}
+
+function saveLinkItem(formId, listId){
+  const title = document.getElementById('hwtxt-'+formId)?.value.trim();
+  const url   = document.getElementById('hwpages-'+formId)?.value.trim();
+  if(!title) return;
+  const list = document.getElementById(listId);
+  if(!list) return;
+  const li = document.createElement('li');
+  li.innerHTML = `<div class="hw-chk" style="border-color:var(--sage);cursor:default;background:var(--sage);color:white;font-size:.65rem">↗</div><span class="hw-txt">${url ? `<a href="${url}" target="_blank" style="color:var(--rose);text-decoration:none">${title}</a>` : title}</span><button onclick="this.closest('li').remove();saveAll()" style="background:none;border:none;cursor:pointer;color:#c0b4aa;font-size:.72rem;margin-left:auto">✕</button>`;
+  list.appendChild(li);
+  document.getElementById('hwtxt-'+formId).value = '';
+  document.getElementById('hwpages-'+formId).value = '';
+  hideHwForm(formId);
+  saveAll();
+}
+
+function addVocabUnit(){
+  const num  = document.getElementById('vuNum').value.trim();
+  const name = document.getElementById('vuName').value.trim();
+  if(!num){ alert('Please enter a unit number.'); return; }
+  const uid = 'vocab-unit-' + num;
+  if(document.getElementById(uid)){ alert('Unit '+num+' already exists.'); return; }
+  const div = document.createElement('div');
+  div.className = 'unit-item'; div.id = uid;
+  div.style.cssText = 'opacity:0;transform:translateY(12px)';
+  const lid = 'vocablinks-unit-'+num; const fid = 'vocablink-unit-'+num;
+  div.innerHTML = `<div class="unit-header" onclick="toggleUnit('${uid}')"><span class="unit-number">Unit ${num}</span><span class="unit-title-text">${name||'—'}</span><span class="unit-chevron">▼</span></div><div class="unit-body"><div class="unit-body-inner"><textarea class="unit-textarea" id="vocab-u${num}" placeholder="Word — translation" rows="8" oninput="saveAll()" style="min-height:160px;font-family:monospace;font-size:.82rem"></textarea><div style="margin-top:.7rem"><div class="unit-notes-label" style="margin-bottom:.35rem">🔗 Links &amp; files</div><ul class="simple-hw-list" id="${lid}"></ul><button class="btn-add-hw" onclick="showHwForm('${fid}')">＋ Add link</button><div class="add-hw-form" id="hwform-${fid}"><div class="form-row"><input type="text" class="inp-main" placeholder="Title" id="hwtxt-${fid}"></div><div class="form-row"><input type="url" class="inp-url" placeholder="https://..." id="hwpages-${fid}" style="flex:1"></div><div class="form-actions"><button class="btn-save-hw" onclick="saveLinkItem('${fid}','${lid}')">Save</button><button class="btn-cancel-hw" onclick="hideHwForm('${fid}')">Cancel</button></div></div></div></div></div>`;
+  document.getElementById('vocabUnitsList').appendChild(div);
+  requestAnimationFrame(()=>{ div.style.transition='opacity .35s ease,transform .35s ease'; div.style.opacity='1'; div.style.transform='translateY(0)'; });
+  document.getElementById('vuNum').value=''; document.getElementById('vuName').value='';
+  closeModal('vocabunit');
+}
+
+function addReviewUnit(){
+  const num  = document.getElementById('ruNum').value.trim();
+  const name = document.getElementById('ruName').value.trim();
+  if(!num){ alert('Please enter a unit number.'); return; }
+  const uid = 'review-unit-' + num;
+  if(document.getElementById(uid)){ alert('Unit '+num+' already exists.'); return; }
+  const div = document.createElement('div');
+  div.className = 'unit-item'; div.id = uid;
+  div.style.cssText = 'opacity:0;transform:translateY(12px)';
+  const lid = 'reviewlinks-unit-'+num; const fid = 'reviewlink-unit-'+num;
+  div.innerHTML = `<div class="unit-header" onclick="toggleUnit('${uid}')"><span class="unit-number">Unit ${num}</span><span class="unit-title-text">${name||'—'} — Review</span><span class="unit-chevron">▼</span></div><div class="unit-body"><div class="unit-body-inner"><div class="unit-notes-row" style="margin-bottom:.8rem"><div class="unit-notes-col"><div class="unit-notes-label">✅ What I know well</div><textarea class="unit-textarea" id="review-u${num}-know" placeholder="Topics I'm confident with…" oninput="saveAll()"></textarea></div><div class="unit-notes-col"><div class="unit-notes-label">🔁 What to practise more</div><textarea class="unit-textarea" id="review-u${num}-practise" placeholder="Topics to revise…" oninput="saveAll()"></textarea></div></div><div class="unit-notes-label" style="margin-bottom:.35rem">📝 General notes</div><textarea class="unit-textarea" id="review-u${num}-notes" placeholder="Any other notes…" oninput="saveAll()"></textarea><div style="margin-top:.7rem"><div class="unit-notes-label" style="margin-bottom:.35rem">🔗 Links &amp; files</div><ul class="simple-hw-list" id="${lid}"></ul><button class="btn-add-hw" onclick="showHwForm('${fid}')">＋ Add link</button><div class="add-hw-form" id="hwform-${fid}"><div class="form-row"><input type="text" class="inp-main" placeholder="Title" id="hwtxt-${fid}"></div><div class="form-row"><input type="url" class="inp-url" placeholder="https://..." id="hwpages-${fid}" style="flex:1"></div><div class="form-actions"><button class="btn-save-hw" onclick="saveLinkItem('${fid}','${lid}')">Save</button><button class="btn-cancel-hw" onclick="hideHwForm('${fid}')">Cancel</button></div></div></div></div></div>`;
+  document.getElementById('reviewUnitsList').appendChild(div);
+  requestAnimationFrame(()=>{ div.style.transition='opacity .35s ease,transform .35s ease'; div.style.opacity='1'; div.style.transform='translateY(0)'; });
+  document.getElementById('ruNum').value=''; document.getElementById('ruName').value='';
+  closeModal('reviewunit');
 }
 
 function toggleGlobalNotes(){
