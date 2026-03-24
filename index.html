@@ -1306,6 +1306,278 @@ function resetReadingReview(){
   if(scoreEl) scoreEl.textContent = '';
   saveAll();
 }
+</script> <!-- REVIEW 1 sub-accordion - добавить после acc-1-writing в Unit 1 -->
+<div class="lesson-accordion" id="acc-1-review">
+  <div class="lesson-acc-header" onclick="toggleAcc('acc-1-review')">
+    <span class="lesson-acc-tag" style="color:var(--gold)">📝 Review</span>
+    <span class="lesson-acc-title">Unit 1 Review — Grammar &amp; Vocabulary</span>
+    <span class="lesson-acc-chevron">▼</span>
+  </div>
+  <div class="lesson-acc-body"><div class="lesson-acc-inner">
+
+  <span class="section-tag tag-grammar">Grammar — questions</span>
+  <div class="ex-block" id="ex-rev1-1">
+    <p class="ex-instruction"><strong>1A</strong> Complete each question with one missing word.</p>
+    <ol class="ex-items">
+      <li>Which month <input id="rev1-q1" class="gap sm" type="text" placeholder="…" data-ans="is"> your favourite?</li>
+      <li>Where <input id="rev1-q2" class="gap sm" type="text" placeholder="…" data-ans="do"> you usually go in the summer?</li>
+      <li>What kind <input id="rev1-q3" class="gap sm" type="text" placeholder="…" data-ans="of"> ice cream do you like the best?</li>
+      <li>How <input id="rev1-q4" class="gap sm" type="text" placeholder="…" data-ans="many"> hours do you study English in a week?</li>
+      <li>Why <input id="rev1-q5" class="gap sm" type="text" placeholder="…" data-ans="were"> you late for the last lesson?</li>
+      <li>What <input id="rev1-q6" class="gap sm" type="text" placeholder="…" data-ans="did"> you have for breakfast this morning?</li>
+      <li>When <input id="rev1-q7" class="gap sm" type="text" placeholder="…" data-ans="are"> you going to have a real holiday?</li>
+      <li>Who <input id="rev1-q8" class="gap sm" type="text" placeholder="…" data-ans="is"> your favourite sportsperson?</li>
+    </ol>
+    <div class="ex-actions">
+      <button class="btn-check" onclick="checkExercise('ex-rev1-1')">Check</button>
+      <button class="btn-hint" onclick="hintExercise('ex-rev1-1')">Hint</button>
+      <button class="btn-show-ans" onclick="showAnswers('ex-rev1-1')">Show answers</button>
+      <button class="btn-reset-ex" onclick="resetExercise('ex-rev1-1')">↺ Reset</button>
+      <span class="ex-score"></span>
+    </div>
+  </div>
+
+  <span class="section-tag tag-grammar">Grammar — present simple and continuous</span>
+  <div class="ex-block" id="ex-rev1-2">
+    <p class="ex-instruction"><strong>2A</strong> Complete the sentences with the present simple or present continuous form of the words in brackets so they are true for you.</p>
+    <ol class="ex-items">
+      <li>I <input id="rev1-p1" class="gap" type="text" placeholder="…" data-ans="spend|am spending"> too much money these days. (spend)</li>
+      <li>I <input id="rev1-p2" class="gap" type="text" placeholder="…" data-ans="often spend"> too much money on holidays. (often / spend)</li>
+      <li>I <input id="rev1-p3" class="gap" type="text" placeholder="…" data-ans="am learning|'m learning"> a lot of new things these days. (learn)</li>
+      <li>I <input id="rev1-p4" class="gap" type="text" placeholder="…" data-ans="enjoy"> parties. (enjoy)</li>
+      <li>I <input id="rev1-p5" class="gap" type="text" placeholder="…" data-ans="usually prepare"> for job interviews. (usually / prepare)</li>
+      <li>I <input id="rev1-p6" class="gap" type="text" placeholder="…" data-ans="am preparing|'m preparing"> for a job interview now. (prepare)</li>
+      <li>I <input id="rev1-p7" class="gap" type="text" placeholder="…" data-ans="am studying|'m studying"> a lot at the moment. (study)</li>
+      <li>I <input id="rev1-p8" class="gap" type="text" placeholder="…" data-ans="often arrive"> home before seven o'clock. (often / arrive)</li>
+    </ol>
+    <div class="ex-actions">
+      <button class="btn-check" onclick="checkExercise('ex-rev1-2')">Check</button>
+      <button class="btn-hint" onclick="hintExercise('ex-rev1-2')">Hint</button>
+      <button class="btn-show-ans" onclick="showAnswers('ex-rev1-2')">Show answers</button>
+      <button class="btn-reset-ex" onclick="resetExercise('ex-rev1-2')">↺ Reset</button>
+      <span class="ex-score"></span>
+    </div>
+  </div>
+
+  <span class="section-tag tag-grammar">Grammar — verb + -ing form</span>
+  <div class="ex-block" id="ex-rev1-3">
+    <p class="ex-instruction"><strong>3A</strong> Correct the mistakes in five of the sentences.</p>
+    <ol class="ex-items">
+      <li>I like <span class="spelling-word">puting</span> on new clothes for the first time. → <input id="rev1-v1" class="gap" type="text" placeholder="correction…" data-ans="putting"></li>
+      <li>I hate <span class="spelling-word">haveing</span> friends round to my home for dinner. → <input id="rev1-v2" class="gap" type="text" placeholder="correction…" data-ans="having"></li>
+      <li>I don't mind working in the evening. <span style="color: var(--sage);">✓ Correct</span></li>
+      <li>I love <span class="spelling-word">begining</span> a new project. → <input id="rev1-v3" class="gap" type="text" placeholder="correction…" data-ans="beginning"></li>
+      <li>I enjoy <span class="spelling-word">makeing</span> dinner for myself. → <input id="rev1-v4" class="gap" type="text" placeholder="correction…" data-ans="making"></li>
+      <li>I dislike <span class="spelling-word">studiing</span> alone. → <input id="rev1-v5" class="gap" type="text" placeholder="correction…" data-ans="studying"></li>
+    </ol>
+    <div class="ex-actions">
+      <button class="btn-check" onclick="checkExercise('ex-rev1-3')">Check</button>
+      <button class="btn-hint" onclick="hintExercise('ex-rev1-3')">Hint</button>
+      <button class="btn-show-ans" onclick="showAnswers('ex-rev1-3')">Show answers</button>
+      <button class="btn-reset-ex" onclick="resetExercise('ex-rev1-3')">↺ Reset</button>
+      <span class="ex-score"></span>
+    </div>
+  </div>
+
+  <span class="section-tag tag-vocab">Vocabulary — complete with missing vowels</span>
+  <div class="ex-block" id="ex-rev1-4">
+    <p class="ex-instruction"><strong>4A</strong> Complete the words and phrases with the missing vowels.</p>
+    
+    <div class="vocab-grid">
+      <div class="vocab-category">
+        <h4>🔧 Common verbs</h4>
+        <div class="vocab-item"><span>1</span> w_k_ _p → <input type="text" id="rev1-voc1" data-ans="wake up" class="gap"></div>
+        <div class="vocab-item"><span>2</span> g_ to sl__p → <input type="text" id="rev1-voc2" data-ans="go to sleep" class="gap"></div>
+        <div class="vocab-item"><span>3</span> br_sh your t__th → <input type="text" id="rev1-voc3" data-ans="brush your teeth" class="gap"></div>
+        <div class="vocab-item"><span>4</span> dry your h__r → <input type="text" id="rev1-voc4" data-ans="dry your hair" class="gap"></div>
+        <div class="vocab-item"><span>5</span> g_t dr_ss_d → <input type="text" id="rev1-voc5" data-ans="get dressed" class="gap"></div>
+        <div class="vocab-item"><span>6</span> l_ck the d__r → <input type="text" id="rev1-voc6" data-ans="lock the door" class="gap"></div>
+      </div>
+
+      <div class="vocab-category">
+        <h4>💼 Jobs</h4>
+        <div class="vocab-item"><span>7</span> __th_r → <input type="text" id="rev1-voc7" data-ans="author" class="gap"></div>
+        <div class="vocab-item"><span>8</span> d_nc_r → <input type="text" id="rev1-voc8" data-ans="dancer" class="gap"></div>
+        <div class="vocab-item"><span>9</span> d_nt_st → <input type="text" id="rev1-voc9" data-ans="dentist" class="gap"></div>
+        <div class="vocab-item"><span>10</span> f_ct_ry w_rk_r → <input type="text" id="rev1-voc10" data-ans="factory worker" class="gap"></div>
+        <div class="vocab-item"><span>11</span> t__r g__d_ → <input type="text" id="rev1-voc11" data-ans="tour guide" class="gap"></div>
+        <div class="vocab-item"><span>12</span> v_t → <input type="text" id="rev1-voc12" data-ans="vet" class="gap"></div>
+      </div>
+
+      <div class="vocab-category">
+        <h4>💭 Feelings</h4>
+        <div class="vocab-item"><span>13</span> str_ss_d → <input type="text" id="rev1-voc13" data-ans="stressed" class="gap"></div>
+        <div class="vocab-item"><span>14</span> p_s_t_v_ → <input type="text" id="rev1-voc14" data-ans="positive" class="gap"></div>
+        <div class="vocab-item"><span>15</span> _nt_r_st_d → <input type="text" id="rev1-voc15" data-ans="interested" class="gap"></div>
+        <div class="vocab-item"><span>16</span> _fr__d → <input type="text" id="rev1-voc16" data-ans="afraid" class="gap"></div>
+        <div class="vocab-item"><span>17</span> pl__s_d → <input type="text" id="rev1-voc17" data-ans="pleased" class="gap"></div>
+        <div class="vocab-item"><span>18</span> l_n_ly → <input type="text" id="rev1-voc18" data-ans="lonely" class="gap"></div>
+      </div>
+    </div>
+    
+    <div class="ex-actions">
+      <button class="btn-check" onclick="checkExercise('ex-rev1-4')">Check</button>
+      <button class="btn-hint" onclick="hintExercise('ex-rev1-4')">Hint</button>
+      <button class="btn-show-ans" onclick="showAnswers('ex-rev1-4')">Show answers</button>
+      <button class="btn-reset-ex" onclick="resetExercise('ex-rev1-4')">↺ Reset</button>
+      <span class="ex-score"></span>
+    </div>
+  </div>
+
+  <span class="section-tag tag-listen">Reading — complete the text</span>
+  <div class="ex-block" id="ex-rev1-5">
+    <p class="ex-instruction"><strong>5A</strong> Choose the correct option (A–C) to complete the text.</p>
+    
+    <div class="reading-box">
+      <p>
+        In my home country I had a good <sup>1</sup><span class="gap-num">___</span> as a tour guide, but then I moved to Sydney and everything changed. I tried to find the same kind of job, but I didn't speak English well and no one <sup>2</sup><span class="gap-num">___</span> me a job. Finally, I took a job as a cleaner. The <sup>3</sup><span class="gap-num">___</span> wasn't very good, but it was something. The work was hard and the kitchens were the worst. People didn't do the washing <sup>4</sup><span class="gap-num">___</span> or <sup>5</sup><span class="gap-num">___</span> anything away, and there was often old food everywhere (the smell was terrible). I didn't like working alone and felt lonely and <sup>6</sup><span class="gap-num">___</span>. I studied English in my free time and when I was more <sup>7</sup><span class="gap-num">___</span>, I <sup>8</sup><span class="gap-num">___</span> another interview for a job in the tourist <sup>9</sup><span class="gap-num">___</span>. That was five years ago. Now it's my <sup>10</sup><span class="gap-num">___</span> to train new guides and I love it!
+      </p>
+    </div>
+
+    <div style="margin-top:1rem;">
+      <div class="exercise" style="padding:.6rem 0;border-left:none;">
+        <span class="exercise-num">1</span>
+        <div class="mc-options" data-question="rev1-r1" data-ans="C">
+          <div class="mc-option" data-value="A" onclick="pick(this)">A) industry</div>
+          <div class="mc-option" data-value="B" onclick="pick(this)">B) cry</div>
+          <div class="mc-option" data-value="C" onclick="pick(this)">C) career</div>
+        </div>
+      </div>
+      <div class="exercise" style="padding:.6rem 0;border-left:none;">
+        <span class="exercise-num">2</span>
+        <div class="mc-options" data-question="rev1-r2" data-ans="B">
+          <div class="mc-option" data-value="A" onclick="pick(this)">A) contract</div>
+          <div class="mc-option" data-value="B" onclick="pick(this)">B) offered</div>
+          <div class="mc-option" data-value="C" onclick="pick(this)">C) locked</div>
+        </div>
+      </div>
+      <div class="exercise" style="padding:.6rem 0;border-left:none;">
+        <span class="exercise-num">3</span>
+        <div class="mc-options" data-question="rev1-r3" data-ans="A">
+          <div class="mc-option" data-value="A" onclick="pick(this)">A) pay</div>
+          <div class="mc-option" data-value="B" onclick="pick(this)">B) career</div>
+          <div class="mc-option" data-value="C" onclick="pick(this)">C) vet</div>
+        </div>
+      </div>
+      <div class="exercise" style="padding:.6rem 0;border-left:none;">
+        <span class="exercise-num">4</span>
+        <div class="mc-options" data-question="rev1-r4" data-ans="C">
+          <div class="mc-option" data-value="A" onclick="pick(this)">A) over</div>
+          <div class="mc-option" data-value="B" onclick="pick(this)">B) out</div>
+          <div class="mc-option" data-value="C" onclick="pick(this)">C) up</div>
+        </div>
+      </div>
+      <div class="exercise" style="padding:.6rem 0;border-left:none;">
+        <span class="exercise-num">5</span>
+        <div class="mc-options" data-question="rev1-r5" data-ans="B">
+          <div class="mc-option" data-value="A" onclick="pick(this)">A) shut</div>
+          <div class="mc-option" data-value="B" onclick="pick(this)">B) put</div>
+          <div class="mc-option" data-value="C" onclick="pick(this)">C) get</div>
+        </div>
+      </div>
+      <div class="exercise" style="padding:.6rem 0;border-left:none;">
+        <span class="exercise-num">6</span>
+        <div class="mc-options" data-question="rev1-r6" data-ans="A">
+          <div class="mc-option" data-value="A" onclick="pick(this)">A) unhappy</div>
+          <div class="mc-option" data-value="B" onclick="pick(this)">B) interested</div>
+          <div class="mc-option" data-value="C" onclick="pick(this)">C) positive</div>
+        </div>
+      </div>
+      <div class="exercise" style="padding:.6rem 0;border-left:none;">
+        <span class="exercise-num">7</span>
+        <div class="mc-options" data-question="rev1-r7" data-ans="C">
+          <div class="mc-option" data-value="A" onclick="pick(this)">A) afraid</div>
+          <div class="mc-option" data-value="B" onclick="pick(this)">B) pleased</div>
+          <div class="mc-option" data-value="C" onclick="pick(this)">C) confident</div>
+        </div>
+      </div>
+      <div class="exercise" style="padding:.6rem 0;border-left:none;">
+        <span class="exercise-num">8</span>
+        <div class="mc-options" data-question="rev1-r8" data-ans="C">
+          <div class="mc-option" data-value="A" onclick="pick(this)">A) had</div>
+          <div class="mc-option" data-value="B" onclick="pick(this)">B) signed</div>
+          <div class="mc-option" data-value="C" onclick="pick(this)">C) did</div>
+        </div>
+      </div>
+      <div class="exercise" style="padding:.6rem 0;border-left:none;">
+        <span class="exercise-num">9</span>
+        <div class="mc-options" data-question="rev1-r9" data-ans="B">
+          <div class="mc-option" data-value="A" onclick="pick(this)">A) career</div>
+          <div class="mc-option" data-value="B" onclick="pick(this)">B) industry</div>
+          <div class="mc-option" data-value="C" onclick="pick(this)">C) interview</div>
+        </div>
+      </div>
+      <div class="exercise" style="padding:.6rem 0;border-left:none;">
+        <span class="exercise-num">10</span>
+        <div class="mc-options" data-question="rev1-r10" data-ans="B">
+          <div class="mc-option" data-value="A" onclick="pick(this)">A) pay</div>
+          <div class="mc-option" data-value="B" onclick="pick(this)">B) job</div>
+          <div class="mc-option" data-value="C" onclick="pick(this)">C) offer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-actions">
+      <button class="btn-check" onclick="checkReadingReview()">Check</button>
+      <button class="btn-reset-ex" onclick="resetReadingReview()">↺ Reset</button>
+      <span class="ex-score" id="score-rev1-reading"></span>
+    </div>
+  </div>
+
+  <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-top:1rem;padding:.6rem;background:rgba(26,20,16,.03);border-radius:4px;">
+    🔊 <strong>B R1.01</strong> | Listen and check.
+  </p>
+
+</div></div>
+</div><!-- /acc-1-review -->
+<script>
+// Функции для проверки Reading Review
+function checkReadingReview(){
+  let correct = 0;
+  let total = 10;
+  
+  for(let i = 1; i <= 10; i++){
+    const group = document.querySelector(`[data-question="rev1-r${i}"]`);
+    if(!group) continue;
+    
+    const ans = group.dataset.ans;
+    const selected = group.querySelector('.mc-option.selected');
+    
+    group.querySelectorAll('.mc-option').forEach(opt => {
+      opt.classList.remove('pick-correct', 'pick-wrong');
+      if(opt.dataset.value === ans){
+        opt.classList.add('pick-correct');
+      }
+    });
+    
+    if(selected){
+      if(selected.dataset.value === ans){
+        correct++;
+      } else {
+        selected.classList.add('pick-wrong');
+      }
+    }
+  }
+  
+  const scoreEl = document.getElementById('score-rev1-reading');
+  if(scoreEl){
+    scoreEl.textContent = `${correct}/${total} correct`;
+  }
+  saveAll();
+}
+
+function resetReadingReview(){
+  for(let i = 1; i <= 10; i++){
+    const group = document.querySelector(`[data-question="rev1-r${i}"]`);
+    if(!group) continue;
+    group.querySelectorAll('.mc-option').forEach(opt => {
+      opt.classList.remove('selected', 'pick-correct', 'pick-wrong');
+    });
+  }
+  const scoreEl = document.getElementById('score-rev1-reading');
+  if(scoreEl) scoreEl.textContent = '';
+  saveAll();
+}
 </script>
 
         </div></div>
